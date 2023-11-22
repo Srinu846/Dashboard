@@ -1,5 +1,9 @@
+import 'package:admin/main/components/doctorScreen.dart';
+import 'package:admin/main/components/patientScreen.dart';
+import 'package:admin/main/main_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:admin/screens/dashboard/dashboard_screen.dart';
 
 class SideMenu extends StatelessWidget {
   const SideMenu({
@@ -8,70 +12,72 @@ class SideMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Drawer(
-      child: ListView(
-        children: [
-          DrawerHeader(
-            child: Padding(
-              padding: const EdgeInsets.only(right: 100),
-              child: Center(child: Text("MENU",style: TextStyle(color: Colors.white54,fontSize: 28,fontWeight: FontWeight.bold ),)),
+    return Expanded(
+      child: Drawer(
+        child: ListView(
+          children: [
+            DrawerHeader(
+              child: Padding(
+                padding: const EdgeInsets.only(right: 100),
+                child: Center(child: Text("MENU",style: TextStyle(color: Colors.white54,fontSize: 28,fontWeight: FontWeight.bold ),)),
+              ),
             ),
-          ),
-          DrawerListTile(
-            title: "Dashboard",
-            icon: Icons.speed,
-            svgSrc: "assets/icons/menu_dashboard.svg",
-            press: () {},
-          ),
-          DrawerListTile(
-            title: "Doctor",
-            icon: Icons.medication,
-            svgSrc: "assets/icons/menu_tran.svg",
-            press: () {},
-          ),
-          DrawerListTile(
-            title: "Patients",
-            icon: Icons.person,
-            svgSrc: "assets/icons/menu_task.svg",
-            press: () {},
-          ),
-          DrawerListTile(
-            title: "Department",
-            icon: Icons.engineering,
-            svgSrc: "assets/icons/menu_doc.svg",
-            press: () {},
-          ),
-          DrawerListTile(
-            title: "Roles",
-            icon: Icons.expand_more,
-            svgSrc: "assets/icons/menu_store.svg",
-            press: () {},
-          ),
-          DrawerListTile(
-            title: "Clients",
-            icon: Icons.expand_more,
-            svgSrc: "assets/icons/menu_notification.svg",
-            press: () {},
-          ),
-          DrawerListTile(
-            title: "Users",
-            icon: Icons.expand_more,
-            svgSrc: "assets/icons/menu_profile.svg",
-            press: () {},
-          ),
-          DrawerListTile(
-            title: "Reports",
-            icon: Icons.expand_more,
-            svgSrc: "assets/icons/menu_setting.svg",
-            press: () {},
-          ),
-          DrawerListTile(
-            title: "Nurse/Supporting Staff",
-            icon: Icons.expand_more,
-            svgSrc: "assets/icons/menu_setting.svg",
-            press: () {},
-          ),
-        ],
+            DrawerListTile(
+              title: "Dashboard",
+              icon: Icons.speed,
+              svgSrc: "assets/icons/menu_dashboard.svg",
+              press: () {Navigator.push(context, MaterialPageRoute(builder: (context)=>DashboardScreen() ));},
+            ),
+            DrawerListTile(
+              title: "Doctor",
+              icon: Icons.medication,
+              svgSrc: "assets/icons/menu_tran.svg",
+              press: () {Navigator.push(context, MaterialPageRoute(builder: (context)=>DoctorScreen() ));},
+            ),
+            DrawerListTile(
+              title: "Patients",
+              icon: Icons.person,
+              svgSrc: "assets/icons/menu_task.svg",
+              press: () {Navigator.push(context, MaterialPageRoute(builder: (context)=>PatientScreen()));},
+            ),
+            DrawerListTile(
+              title: "Department",
+              icon: Icons.engineering,
+              svgSrc: "assets/icons/menu_doc.svg",
+              press: () {},
+            ),
+            DrawerListTile(
+              title: "Roles",
+              icon: Icons.expand_more,
+              svgSrc: "assets/icons/menu_store.svg",
+              press: () {},
+            ),
+            DrawerListTile(
+              title: "Clients",
+              icon: Icons.expand_more,
+              svgSrc: "assets/icons/menu_notification.svg",
+              press: () {},
+            ),
+            DrawerListTile(
+              title: "Users",
+              icon: Icons.expand_more,
+              svgSrc: "assets/icons/menu_profile.svg",
+              press: () {},
+            ),
+            DrawerListTile(
+              title: "Reports",
+              icon: Icons.expand_more,
+              svgSrc: "assets/icons/menu_setting.svg",
+              press: () {},
+            ),
+            DrawerListTile(
+              title: "Nurse/Supporting Staff",
+              icon: Icons.expand_more,
+              svgSrc: "assets/icons/menu_setting.svg",
+              press: () {},
+            ),
+          ],
+        ),
       ),
     );
   }
